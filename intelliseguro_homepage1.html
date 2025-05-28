@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IntelliSeguro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicons -->
+    <link href="app-assets/images/favicon.png" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    header {
+        padding: 7px 0;
+    }
+
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .head-home img {
+        height: 15px;
+        position: absolute;
+        top: 9px;
+        left: 8px;
+    }
+
+    .head-home {
+        background: #222732;
+        border: 1.5px solid #2c323f;
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+        position: relative;
+        transform: 0.4s;
+    }
+
+    .head-home:hover {
+        background: #2b313d;
+    }
+
+    .box {
+        background-image: url(app-assets/images/bg.jpg);
+        background-repeat: no-repeat;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .inner-sec {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    .main-box {
+        background: #22273273;
+        padding: 40px 20px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+        border: 1px solid #2c323f;
+        cursor: pointer;
+        transition: 0.4s;
+        min-width: 222px;
+        margin-bottom: 20px;
+    }
+
+    .main-box:hover {
+        background: #222732;
+    }
+
+    .main-box-img {
+        border: 1px solid #5e6067;
+        border-radius: 50%;
+        height: 70px;
+        width: 70px;
+        text-align: center;
+        margin-bottom: 15px;
+        background: #f5f5f5;
+        position: relative;
+        /* box-shadow: rgba(90, 93, 115, 0.39) 0px -50px 36px -28px inset; */
+    }
+
+    .main-box .box-icons {
+        height: 30px;
+        margin-bottom: 30px;
+    }
+
+    .main-box p {
+        font-size: 16px;
+        text-align: center;
+        line-height: 18px;
+    }
+
+    .navbar-expand-lg {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px;
+    }
+
+    .header a {
+        color: #fff !important;
+    }
+
+    .background {
+        position: relative;
+        background: #191d26;
+    }
+
+    .inner-cont {
+        /* background: #1e1f29; */
+        height: calc(100vh - 68px);
+        margin: 0 10px;
+        border-radius: 15px;
+        /* border: 1px solid #242749; */
+    }
+
+    .layer {
+        width: 100vw;
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .tab-block {
+        position: relative;
+    }
+
+    .tab-block .tab-mnu {
+        display: flex;
+        list-style: none;
+        /* padding: 0; */
+        border-bottom: 2px solid #03b0bf;
+        margin-bottom: 5px;
+        margin-top: 3px;
+    }
+
+    .tab-block .tab-mnu::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .tab-block .tab-mnu:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .tab-block .tab-mnu li {
+        box-sizing: border-box;
+        font-size: 12px;
+        font-weight: 600;
+        float: left;
+        background-color: #fff;
+        color: #101018;
+        width: auto;
+        text-align: center;
+        padding: 6px 15px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .tab-block .tab-mnu li:not(:last-child) {
+        border-right: 1px solid #1e1f29
+    }
+
+    .tab-block .tab-mnu li:hover:not(.active) {
+        background-color: #fff;
+    }
+
+    .tab-block .tab-mnu .active {
+        background-color: #03b0bf;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .tab-pane {
+        height: calc(100vh - 100px);
+        overflow-y: hidden;
+        overflow-x: hidden;
+        color: #fff;
+    }
+
+    .owl-item.active {
+        position: relative;
+        top: 2px;
+    }
+
+    .n-next {
+        background: url(app-assets/images/back_dark.svg) no-repeat center center / cover;
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        left: -40px;
+        opacity: 0.5;
+    }
+
+    .hvr-bounce-in {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        position: relative;
+        right: -40px;
+    }
+
+    .hvr-bounce-in:hover,
+    .hvr-bounce-in:focus,
+    .hvr-bounce-in:active {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    }
+
+    .owl-dots {
+        display: none;
+    }
+
+    .n-preview {
+        background: url(app-assets/images/next_dark.svg) no-repeat center center / cover;
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        display: inline-block;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .owl-carousel .owl-item img {
+        width: auto;
+        height: 29px;
+    }
+
+    .offering-card {
+        position: relative;
+    }
+
+    .footer-cont {
+        margin: 17px 80px 0px 80px;
+        position: relative;
+        background: #e5e5e5;
+        border-radius: 7px;
+    }
+
+    .footer-cont .owl-carousel .item h4 {
+        font-size: 12px;
+        margin-bottom: 0;
+        margin-top: 6px;
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 0;
+        margin-top: 5px;
+        color: #13131d;
+    }
+
+    .offering-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 1s;
+    }
+
+    .item {
+        background: transparent;
+        padding: 9px 6px;
+        cursor: pointer;
+        transition: 1s;
+    }
+
+    .item.active .btn {
+        border: 1px solid #101018;
+        background-color: #003f5c !important;
+        position: relative;
+        top: -2px;
+    }
+
+    .item.active .btn-txt {
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 10px 38px 10px 5px;
+        color: #fff;
+    }
+
+    .footer_img {
+        transition: 0.5s;
+    }
+
+    .item.active .footer_img {
+        height: 21px;
+        filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(85deg) brightness(104%) contrast(100%);
+    }
+
+    .item.active .ico {
+        margin-left: -18px;
+        margin-top: 0px;
+    }
+
+    /* .item.active {
+        background: #333f50;
+        border-radius: 10px;
+    } */
+
+    .item.active .footer_text {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+    }
+
+
+    .n-navigation {
+        position: absolute;
+        top: 14px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tab-block h6 {
+        color: #fff;
+        font-weight: 400;
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+    .tab-block .tab-home {
+        position: absolute;
+        right: 0px;
+        top: 3px;
+        color: #fff;
+        padding: 7px;
+        border-radius: 10px 10px 0 0;
+        background: #2f3141;
+    }
+
+    .dd {
+        z-index: 1;
+        position: relative;
+        display: none;
+    }
+
+    .dd img {
+        height: 9px;
+        position: relative;
+        top: 5px;
+        left: 8px;
+    }
+
+    .dd input:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        display: block;
+        background: #C63D0F;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition-duration: 0.2s;
+        -webkit-transform: scaleX(0);
+        -webkit-transform-origin: bottom left;
+        -webkit-transition-duration: 0.2s;
+    }
+
+    .dd input {
+        top: 5px;
+        left: 8px;
+        opacity: 0;
+        display: block;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .dd input:hover {
+        cursor: pointer;
+    }
+
+    .dd input:hover~.dd-a {
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .dd input:checked:after {
+        transform: scaleX(1);
+        -webkit-transform: scaleX(1);
+    }
+
+    .dd input:checked~.dd-c {
+        transform: scaleY(1);
+        -webkit-transform: scaleY(1);
+    }
+
+    .dd-a span {
+        color: #C63D0F;
+    }
+
+    .dd-c {
+        display: block;
+        position: absolute;
+        background: #4f5665;
+        border-radius: 10px;
+        height: auto;
+        transform: scaleY(0);
+        transform-origin: top left;
+        transition-duration: 0.2s;
+        -webkit-transform: scaleY(0);
+        -webkit-transform-origin: top left;
+        -webkit-transition-duration: 0.2s;
+        top: 32px;
+    }
+
+    .dd-c ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .dd-c li {
+        width: 300px !important;
+        border-radius: 0 !important;
+        border: none !important;
+    }
+
+    .dd a {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        padding: 5px;
+        color: #fff;
+    }
+
+    .dd-c a:hover {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        padding: 5px;
+        color: #fff;
+    }
+
+    .tab-img {
+        -moz-transition: all 1s linear;
+        -webkit-transition: all 1s linear;
+        transition: 1s;
+    }
+
+    .tab-img.down {
+        -ms-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    .owl-carousel .owl-stage-outer {
+        height: 51px;
+    }
+
+
+
+    .home_icon {
+        position: absolute;
+        top: 5px;
+        right: 93px;
+    }
+
+    .head-home {
+        background: #222732;
+        border: 1.5px solid #2c323f;
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+        position: relative;
+        transform: 0.4s;
+    }
+
+    .head-home:hover {
+        background: #2b313d;
+    }
+
+    .fixed_footer {
+        background: #e5e5e5;
+    }
+
+    .btn {
+        font-size: 14px;
+        color: #101018 !important;
+        border-radius: 50px;
+        transition: 0.5s;
+    }
+
+    .btn span {
+        font-size: 0;
+        padding: 10px 30px;
+        transition: 0.5s;
+    }
+
+    .btn:hover {
+        border: 1px solid #101018;
+        background-color: #e5e5e5 !important;
+        position: relative;
+        top: -4px;
+    }
+
+    .btn:hover span {
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 10px 38px 10px 5px;
+        color: #101018;
+    }
+
+    .btn:hover .ico {
+        margin-left: 0px;
+        margin-left: -18px;
+        margin-top: 0;
+    }
+
+    .btn:hover .footer_img {
+        transition: 0.2s;
+    }
+
+    .footer_img {
+        transition: 0.5s;
+    }
+
+    .btn:hover .footer_img {
+        height: 21px;
+    }
+
+    .btn:hover .span {
+        visibility: visible;
+
+    }
+
+    .ico {
+        position: absolute;
+        margin-left: -45px;
+        margin-top: -6px;
+    }
+
+    .ico::before {
+        margin-left: -5px;
+    }
+
+    .btn:hover .ico::before {
+        margin-left: -5px;
+    }
+
+    .owl-item {
+        width: auto !important;
+    }
+
+
+
+    .tabbed {
+        min-width: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+        transition: border 250ms ease;
+    }
+
+    .tabbed ul {
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+        padding-left: 31px;
+        list-style-type: none;
+    }
+
+    .tabbed ul * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .tabbed ul li {
+        display: block;
+        float: right;
+        padding: 10px 24px 8px;
+        background-color: #FFF;
+        margin-right: 46px;
+        z-index: 2;
+        position: relative;
+        cursor: pointer;
+        color: #777;
+        transition: all 250ms ease;
+    }
+
+    .tabbed ul li:before,
+    .tabbed ul li:after {
+        display: block;
+        content: " ";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 35px;
+        background-color: #FFF;
+        transition: 0.5s;
+    }
+
+    .tabbed ul li:before {
+        right: -24px;
+        transform: skew(25deg, 0deg);
+        box-shadow: rgba(0, 0, 0, .1) 3px 2px 5px, inset rgba(255, 255, 255, .09) -1px 0;
+    }
+
+    .tabbed ul li:after {
+        left: -24px;
+        transform: skew(-25deg, 0deg);
+        box-shadow: rgba(0, 0, 0, .1) -3px 2px 5px, inset rgba(255, 255, 255, .09) 1px 0;
+    }
+
+    .tabbed ul li:hover,
+    .tabbed ul li:hover:before,
+    .tabbed ul li:hover:after {
+        background-color: #F4F7F9;
+        color: #444;
+    }
+
+    .tabbed ul li.active {
+        z-index: 3;
+    }
+
+    .tabbed ul li.active,
+    .tabbed ul li.active:before,
+    .tabbed ul li.active:after {
+        background-color: #03b0bf;
+        color: #fff;
+    }
+
+    /* Round Tabs */
+    .tabbed.round ul li {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .tabbed.round ul li:before {
+        border-radius: 0 8px 0 0;
+    }
+
+    .tabbed.round ul li:after {
+        border-radius: 8px 0 0 0;
+    }
+
+    .fixed_footer {
+        display: none;
+    }
+
+    .card-body {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .header-home {
+        cursor: pointer;
+    }
+</style>
+
+
+<body>
+    <div class="Population_health">
+        <div class="background">
+            <div class="layer">
+                <div class="inner-cont tabcontent" id="home">
+                    <header class="header">
+                        <div class="container">
+                            <img src="app-assets/images/logo/intelliSeguro-light.png" alt="" style="height: 27px;">
+                            <div class="btn-sec">
+                                <a href="landing_page.html">
+                                    <div class="head-home head-back" style="margin-right: 10px;">
+                                        <img src="app-assets/images/previous.png" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="container p-0" style="position: relative; height: calc(100vh - 56px);">
+                        <div class="card-body">
+                            <div class="row m-0">
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="claims-box">
+                                        <a href="#" onclick="openCity(event, 'claims')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Claims.svg" alt="">
+                                                <p class="mb-3">Claims</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="subrogation-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Subrogation.svg"
+                                                    alt="">
+                                                <p class="mb-3">Subrogation</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="supplements-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Supplements.svg"
+                                                    alt="">
+                                                <p class="mb-3">Supplements</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="Los-Measures-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Los-Measures.svg"
+                                                    alt="">
+                                                <p class="mb-3">Loss Measures</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="Cycle-Time-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Cycle-Time.svg"
+                                                    alt="">
+                                                <p class="mb-3">Cycle Time</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="expenses-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Expenses.svg" alt="">
+                                                <p class="mb-3">Expenses</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="claims-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Compliance.svg"
+                                                    alt="">
+                                                <p class="mb-3">Compliance</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="sales-box">
+                                        <a href="#" onclick="openCity(event, 'under_construction')">
+                                            <div class="main-box">
+                                                <img class="box-icons" src="app-assets/images/ico/Sales.svg" alt="">
+                                                <p class="mb-3">Sales</p>
+                                                <img class="arw-icons" src="app-assets/images/right_arrow.png" alt=""
+                                                    style="height: 20px;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="claims" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block">
+                        <ul class="tab-mnu">
+                            <li class="active">Claims</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch" />
+                                <label for="switch">Toggle</label>
+                            </div>
+                            <h6>IntelliSeguro</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiYWM5ZmExNDctYTY4Mi00MmU4LWIxZmQtOThkZGY2OTAyNmExIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="member" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block1">
+                        <ul class="tab-mnu">
+                            <li class="active">Member</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch1" />
+                                <label for="switch1">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiNjk3NzU1MmUtM2QyYy00ODUzLTliOWEtNDlhNTI3ZTRjNDYxIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="coverage" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block2">
+                        <ul class="tab-mnu">
+                            <li class="active">Coverage</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch2" />
+                                <label for="switch2">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiNzhiMjhkM2EtNzE0Ni00ZjkwLTg3OWUtODdkNzE0MWNlYjEzIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="experience" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block3">
+                        <ul class="tab-mnu">
+                            <li class="active">Experience</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch3" />
+                                <label for="switch3">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiZDQ4NTVlZTUtMWRlZC00OGZiLThlNjUtOGU5ODJlMGI4NWIzIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="eligibility" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block3">
+                        <ul class="tab-mnu">
+                            <li class="active">Eligibility</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch4" />
+                                <label for="switch4">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiZWZkYTA5MWEtNzQzZC00ZjIzLWFhYzMtMTkyYzVhNWQzMGFmIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="provider" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block3">
+                        <ul class="tab-mnu">
+                            <li class="active">Provider</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch5" />
+                                <label for="switch5">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiNDdmZDdkNTAtYzI2ZS00MTdlLTlhYTgtZjg5YjcwNTBjNjgwIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="fraud" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block3">
+                        <ul class="tab-mnu">
+                            <li class="active">Fraud</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch6" />
+                                <label for="switch6">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiNWVmYTY4ODgtNTU5Zi00ZTI3LWI2YzItYWIxYzBlODJmZDBiIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9&pageName=ReportSection09c3686fbf8699b85c66"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="risk" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block3">
+                        <ul class="tab-mnu">
+                            <li class="active">Risk Stratification</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch8" />
+                                <label for="switch8">Toggle</label>
+                            </div>
+                            <h6>IntelliPayer</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont">
+                            <div class="tab-pane">
+                                <section id="population-link">
+                                    <div class=" p-0">
+                                        <div class="embed-hider-footer"
+                                            style="overflow: scroll; height: 100vh; border-radius: 10px;">
+                                            <embed _ngcontent-ykq-c249="" id="myFrame"
+                                                src="https://app.powerbi.com/view?r=eyJrIjoiZWNhOWZlZTgtMDNjZS00MGYxLWJmNTctYWIzZjQwZGU5ODZmIiwidCI6ImUzYzJjNWNlLTQzMjctNGI3OS05NTQyLTI0Y2UwNzI4YmNhNSIsImMiOjF9"
+                                                width="100%" height="100%" style="min-height: 129vh;"></embed>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-cont tabcontent" id="under_construction" style="display: none;">
+                    <div class="tab-block tabbed round" id="tab-block3">
+                        <ul class="tab-mnu">
+                            <li class="active">Dashboard</li>
+                        </ul>
+                        <div class="toggle-sec">
+                            <div class="toggle-switch">
+                                <h6>Switch To <span>AI</span></h6>
+                                <input type="checkbox" id="switch6" />
+                                <label for="switch6">Toggle</label>
+                            </div>
+                            <h6>RCM Intelligence</h6>
+                        </div>
+                        <a onclick="openCity(event, 'home')" class="header-home">
+                            <img class="tab-home" src="app-assets/images/home.png" alt="" style="height: 30px;">
+                        </a>
+                        <div class="tab-cont tab-cont-maintanance">
+                            <div class="maintanance-data">
+                                <img class="" src="app-assets/images/under-construction.svg" alt="">
+                                <h5>Oops! Dashboard under development!</h5>
+                                <p>But don't worry, we will be backup shortly</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fixed_footer">
+                    <div class="footer-cont">
+                        <div class="owl-carousel facilities-slider tab">
+                            <div class="tablinks claims-btn item" onclick="openCity(event, 'claims')">
+                                <div class="offering-card offering-card-c topoo card-one">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Claims</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Claims.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks subrogation-btn wrapper item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-one">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Subrogation</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Subrogation.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks supplements-btn item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-three">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Supplements</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Supplements.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks "Los-Measures-btn item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-four">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Loss Measures</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="ap-assets/images/ico/Los-Measures.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks Cycle-Time-btn item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-four">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Cycle Time</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Cycle-Time.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks expenses-btn item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-four">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Expenses</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Expenses.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks compliance-btn item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-four">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Compliance</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Compliance.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tablinks sales-btn item" onclick="openCity(event, 'under_construction')">
+                                <div class="offering-card offering-card-c topoo card-four">
+                                    <a href="#">
+                                        <div class="btn">
+                                            <span class="btn-txt">Sales</span>
+                                            <i class="ico diabetes-ico"><img class="footer_img"
+                                                    src="app-assets/images/ico/Sales.svg" alt=""></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="n-navigation" style="width: 100%;">
+                            <span class="n-next hvr-bounce-in"></span>
+                            <span class="n-preview hvr-bounce-in"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        var owl5 = $(".facilities-slider");
+        owl5.owlCarousel({
+            loop: false,
+            margin: 30,
+            autoWidth: false,
+            items: 6,
+            autoplay: false,
+            // autoplayTimeout: 5000,
+            // autoplayHoverPause: true,
+            responsiveClass: true,
+            navigation: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false,
+                    loop: false
+                },
+                320: {
+                    items: 2,
+                    nav: false,
+                    loop: false
+                },
+                600: {
+                    items: 3,
+                    nav: false,
+                    loop: false
+                },
+                1000: {
+                    items: 6,
+                    nav: false,
+                    loop: false
+                }
+            }
+        });
+        $('.n-navigation .n-preview').click(function () {
+            owl5.trigger('next.owl.carousel');
+        });
+        $('.n-navigation .n-next').click(function () {
+            owl5.trigger('prev.owl.carousel');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.tab-img').on('click', function () {
+                $(this).toggleClass('down');
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".item").click(function () {
+                $(".item").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
+
+    <script>
+        function myFunction() {
+            Swal.fire({
+                title: 'Log out from intelliHeal?',
+                showDenyButton: true,
+                //showCancelButton: true,
+                confirmButtonText: 'Yes',
+                // denyButtonText: `Don't save`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location.replace("index.html");
+                }// else if (result.isDenied) {
+                //Swal.fire('Changes are not saved', '', 'info')
+                //}
+            })
+        }
+    </script>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+</body>
+
+</html>
